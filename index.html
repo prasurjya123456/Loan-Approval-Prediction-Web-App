@@ -4,7 +4,242 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Government Scheme Aid Insight Portal</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    
+  /* Reset some default spacing */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Times New Roman', serif;
+    line-height: 1.6;
+    background-color: #c7d3df;
+    color: #333;
+  }
+
+  /* Navigation Bar */
+  nav {
+    background-color: #004080;
+    color: #fff;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-size: 1.2rem;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  nav ul li {
+    margin: 0 15px;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+
+  /* Sections */
+  section {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: auto;
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  }
+
+  section h1, section h2 {
+    color: #222;
+    margin-bottom: 15px;
+  }
+
+  section p, section li {
+    margin-bottom: 10px;
+  }
+
+  .about-section {
+    width: 80%;           /* controls width */
+    margin: 0 auto;
+    text-align: justify;
+    font-size: 19px;
+  }
+
+  .logo-photo {
+    display: block; /* Make the image a block-level element */
+    margin-left: auto; /* Distribute available space equally on the left */
+    margin-right: auto; /* Distribute available space equally on the right */
+    /* Or simply: margin: 0 auto; (0 for top/bottom, auto for left/right) */
+    max-width: 100%; /* Optional: Makes the image responsive */
+    height: auto;
+  }
+  /* CSV Data Table */
+  .table-container {
+    max-height: 400px;
+    overflow-x: auto;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+  }
+  #csv-table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 600px; /* ensures horizontal scroll on small screens */
+  }
+  #csv-table th, #csv-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  #csv-table th {
+    background-color: #f2f2f2;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+
+  /* Dashboard Images */
+  #dashboard div {
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  #dashboard img {
+    width: 850px;
+    height: 450px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  }
+
+  /* Forecast Form */
+  #forecast-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #forecast-form label {
+    font-weight: bold;
+  }
+
+  #forecast-form input {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  #forecast-form button {
+    padding: 8px 12px;
+    background-color: #004080;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  #forecast-form button:hover {
+    background-color: #0066cc;
+  }
+  #about {
+    margin-bottom: 30px;
+  }
+  .about-stack {
+    padding-left: 30px;
+    margin-right: 30px;
+  }
+  /* Footer 
+  footer {
+    background-color: #004080;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px;
+  }
+
+  footer ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  footer li {
+    margin-bottom: 5px;
+  } */
+   footer {
+  background-color: #004080;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer-content h3 {
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+
+.dev-info-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.dev-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s;
+}
+
+.dev-info:hover {
+  transform: translateY(-5px);
+}
+
+.dev-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #00bcd4;
+  margin-bottom: 10px;
+}
+
+.dev-info p {
+  margin: 8px 0 5px;
+  font-size: 1.1rem;
+}
+
+.footer-copy {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 20px;
+}
+
+
+  </style>
+
+
 </head>
 <body>
 
@@ -22,46 +257,52 @@
 
   <!-- Home Section -->
   <section id="home">
-    <h1>Government Scheme Aid Insight Portal</h1>
-    <p>This project provides a user-friendly portal for predicting request approval and granted amounts using AI models trained on past government scheme data.</p>
+    <h1 style="text-align: center; font-size: 1.8rem;">Sankalp: Government Scheme Aid Insight Portal</h1>
+    <img src="{{ url_for('static', filename='img/sankalp1.png') }}" alt="logo" class="logo-photo">
+    <p class="about-section">Sankalp Insight Portal is a data-driven web application designed to streamline the evaluation of government scheme requests using intelligent machine learning models. Built with a focus on accuracy and transparency, the platform allows users to upload request data, visualize trends, and predict approval status, sanctioned amounts, and estimated beneficiaries in real-time. The system utilizes a classification model to assess the likelihood of approval and regression models for financial and impact estimations, providing decision-makers and analysts with actionable insights. With an interactive dashboard, clean visualizations, and a user-friendly interface, the portal bridges the gap between complex data and meaningful understanding. Developed by a dedicated team of students, this project showcases the integration of AI and data science into public welfare, helping ensure more informed and equitable scheme distribution. The portal reflects our vision of combining technology and social impact for the greater good.</p>
   </section>
 
   <!-- Data Section -->
-  <section id="data">
-    <h2>Dataset Viewer</h2>
-    <div class="table-container">
-      <table id="csv-table">
-        <!-- Data will be inserted here via JS -->
-      </table>
-    </div>
-  </section>
+  <!-- Data Section -->
+<section id="data">
+  <h2 style="text-align: center; font-size: 1.8rem;">Dataset Viewer</h2>
+  <div style="overflow-x: auto; max-height: 400px; overflow-y: auto;">
+    {{ data_html | safe }}
+  </div>
+  
+</section>
+
+  
   
   
 
   <!-- Dashboard Section -->
   <section id="dashboard">
-    <h2>Dashboard Charts</h2>
+    <h2 style="text-align: center; font-size: 1.8rem;">Dashboard Charts</h2>
     <div style="display: flex; overflow-x: auto;">
-      <img src="chart1.jpg">
-      <img src="chart2.jpg">
-      <img src="chart3.jpg">
-      <img src="chart4.jpg">
-      <img src="chart5.jpg">
-      <img src="chart6.jpg">
-      <img src="chart7.jpg">
-      <img src="chart8.jpg">
-      <img src="chart9.jpg">
-      <img src="chart10.jpg">
+      <img src="{{ url_for('static', filename='img/chart1.jpg') }}" >
+      <img src="{{ url_for('static', filename='img/chart2.jpg') }}" >
+      <img src="{{ url_for('static', filename='img/chart3.jpg') }}" >
+      <img src="{{ url_for('static', filename='img/chart4.jpg') }}" >
+      <img src="{{ url_for('static', filename='img/chart5.jpg') }}" >
+      <img src="{{ url_for('static', filename='img/chart6.jpg') }}" >
+      <img src="{{ url_for('static', filename='img/chart7.jpg') }}" >
+      <img src="{{ url_for('static', filename='img/chart8.jpg') }}" >
+      <img src="{{ url_for('static', filename='img/chart9.jpg') }}" >
+      <img src="{{ url_for('static', filename='img/chart10.jpg') }}">
+
       
     </div>
   </section>
 
   <!-- Forecast Section -->
   <section id="forecast">
-    <h2>Predict Granted Amount</h2>
-
+    <h2 style="text-align: center; font-size: 1.8rem;">Forecast Section</h2>
+    
     <!-- Form for user input -->
     <form method="POST" action="/">
+      <div style="margin-left: 40px;">
+    
         <label>Requested Amount:</label>
         <input type="number" name="requested_amount" step="any" required><br><br>
 
@@ -72,6 +313,7 @@
         <input type="number" name="processing_days" step="any" required><br><br>
 
         <input type="submit" value="Predict">
+      
     </form>
 
     <br>
@@ -81,33 +323,47 @@
     {% else %}
         <p>No prediction made yet.</p>
     {% endif %}
+  </div>
   </section>
-
 
   <!-- About Section -->
   <section id="about">
-    <h2>About This Project</h2>
-    <p>This system uses Machine Learning models like Keras-based classifiers and regressors trained on real scheme data.</p>
-    <h3>Tech Stack Used:</h3>
-    <ul>
-      <li>Frontend: HTML, CSS, JS</li>
-      <li>Backend: Flask (for model serving)</li>
-      <li>ML: Keras, scikit-learn</li>
-      <li>Data: CSV files, Pandas</li>
-    </ul>
+    <div style="margin-left: 40px;">
+      <h2 style="text-align: center; font-size: 1.8rem;">About This Project</h2>
+      <p style="font-size: 1.2rem;">This system uses Machine Learning models like Keras-based classifiers and regressors trained on real scheme data.</p>
+      <h3 >Tech Stack Used:</h3>
+      <ul class="about-stack">
+        <li>Frontend: HTML, CSS, JS</li>
+        <li>Backend: Flask (for model serving)</li>
+        <li>ML: Keras, scikit-learn</li>
+        <li>Data: CSV files, Pandas</li>
+      </ul>
+    </div>
   </section>
 
   <!-- Footer Section -->
-  <footer id="footer">
-    <h3>Project Members</h3>
-    <ul>
-      <li>Member 1</li>
-      <li>Member 2</li>
-      <li>Member 3</li>
-    </ul>
-    <p>Guide: Dr. XYZ</p>
+  <footer>
+    <div class="footer-content">
+      <h3>Developed By</h3>
+      <div class="dev-info-group">
+        <div class="dev-info">
+          <img src="{{ url_for('static', filename='img/Subrata.jpg') }}" alt="Subrata Goswami" class="dev-photo">
+          <p><strong>Subrata Goswami</strong></p>
+        </div>
+        <div class="dev-info">
+          <img src="{{ url_for('static', filename='img/Prasurjya.jpg') }}" alt="Prasurjya Goswami" class="dev-photo">
+          <p><strong>Prasurjya Goswami</strong></p>
+        </div>
+        <div class="dev-info">
+          <img src="{{ url_for('static', filename='img/Nabajyoti.jpg') }}" alt="Nabajyoti Das" class="dev-photo">
+          <p><strong>Nabajyoti Das</strong></p>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2025 Sankalp Portal. All rights reserved.</p>
+    </div>
   </footer>
-  <script src="script.js"></script>
+
+  
 
 </body>
 </html>
