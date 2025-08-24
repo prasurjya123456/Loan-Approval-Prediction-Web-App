@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Government Scheme Aid Insight Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#data">Data</a></li>
+      <li><a href="#dashboard">Dashboard</a></li>
+      <li><a href="#forecast">Forecast</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#footer">Team</a></li>
+    </ul>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home">
+    <h1>Government Scheme Aid Insight Portal</h1>
+    <p>This project provides a user-friendly portal for predicting request approval and granted amounts using AI models trained on past government scheme data.</p>
+  </section>
+
+  <!-- Data Section -->
+  <section id="data">
+    <h2>Dataset Viewer</h2>
+    <div class="table-container">
+      <table id="csv-table">
+        <!-- Data will be inserted here via JS -->
+      </table>
+    </div>
+  </section>
+  
+  
+
+  <!-- Dashboard Section -->
+  <section id="dashboard">
+    <h2>Dashboard Charts</h2>
+    <div style="display: flex; overflow-x: auto;">
+      <img src="chart1.jpg">
+      <img src="chart2.jpg">
+      <img src="chart3.jpg">
+      <img src="chart4.jpg">
+      <img src="chart5.jpg">
+      <img src="chart6.jpg">
+      <img src="chart7.jpg">
+      <img src="chart8.jpg">
+      <img src="chart9.jpg">
+      <img src="chart10.jpg">
+      
+    </div>
+  </section>
+
+  <!-- Forecast Section -->
+  <section id="forecast">
+    <h2>Predict Granted Amount</h2>
+
+    <!-- Form for user input -->
+    <form method="POST" action="/">
+        <label>Requested Amount:</label>
+        <input type="number" name="requested_amount" step="any" required><br><br>
+
+        <label>Officer Review Score:</label>
+        <input type="number" name="officer_score" step="any" required><br><br>
+
+        <label>Processing Time (Days):</label>
+        <input type="number" name="processing_days" step="any" required><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    <br>
+    <!-- Show prediction if available -->
+    {% if prediction is not none %}
+        <h2>Predicted Granted Amount: ₹{{ prediction }}</h2>
+    {% else %}
+        <p>No prediction made yet.</p>
+    {% endif %}
+  </section>
+
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About This Project</h2>
+    <p>This system uses Machine Learning models like Keras-based classifiers and regressors trained on real scheme data.</p>
+    <h3>Tech Stack Used:</h3>
+    <ul>
+      <li>Frontend: HTML, CSS, JS</li>
+      <li>Backend: Flask (for model serving)</li>
+      <li>ML: Keras, scikit-learn</li>
+      <li>Data: CSV files, Pandas</li>
+    </ul>
+  </section>
+
+  <!-- Footer Section -->
+  <footer id="footer">
+    <h3>Project Members</h3>
+    <ul>
+      <li>Member 1</li>
+      <li>Member 2</li>
+      <li>Member 3</li>
+    </ul>
+    <p>Guide: Dr. XYZ</p>
+  </footer>
+  <script src="script.js"></script>
+
+</body>
+</html>
